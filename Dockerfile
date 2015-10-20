@@ -11,7 +11,8 @@ RUN pip install -U pytest
 
 # prepare the container
 WORKDIR /home
-RUN git clone https://github.com/keboola/docker-tde-exporter.git ./
+RUN git clone https://github.com/keboola/tde-exporter.git ./
+RUN git checkout tags/0.0.2
 WORKDIR libs
 RUN tar xvzf TDE-API-Python-Linux-64Bit.gz
 WORKDIR DataExtract-8300.15.0308.1149
