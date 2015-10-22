@@ -1,3 +1,4 @@
+#Dockerfile version 1.0.0
 FROM keboola/base
 MAINTAINER Tomas Kacur <tomas.kacur@keboola.com>
 
@@ -20,4 +21,6 @@ RUN python setup.py build
 RUN python setup.py install
 WORKDIR /home
 RUN PYTHONPATH=. py.test
+#remove the tests results
+RUN rm -rf /tmp/pytest-of-root/
 ENTRYPOINT python -u ./src/main.py --data=/data
