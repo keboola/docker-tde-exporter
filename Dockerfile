@@ -1,4 +1,4 @@
-#Dockerfile version 1.0.0
+#Dockerfile version 1.1.0
 FROM keboola/base
 MAINTAINER Tomas Kacur <tomas.kacur@keboola.com>
 
@@ -9,6 +9,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 RUN pip install PyYaml
 RUN pip install -U pytest
+RUN pip install httplib2
 
 # prepare the container
 WORKDIR /home
