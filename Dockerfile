@@ -1,4 +1,3 @@
-#Dockerfile version 2.0.1
 FROM keboola/base-php56
 MAINTAINER Tomas Kacur <tomas.kacur@keboola.com>
 
