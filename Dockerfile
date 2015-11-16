@@ -1,5 +1,5 @@
-#Dockerfile version 1.1.0
-FROM keboola/base
+#Dockerfile version 2.0.0
+FROM keboola/base-php56
 MAINTAINER Tomas Kacur <tomas.kacur@keboola.com>
 
 # setup the environment
@@ -12,6 +12,7 @@ RUN pip install -U pytest
 RUN pip install httplib2
 
 # prepare the container
+
 WORKDIR /home
 RUN git clone https://github.com/keboola/tde-exporter.git ./
 RUN git checkout tags/0.0.2
@@ -20,6 +21,11 @@ RUN tar xvzf TDE-API-Python-Linux-64Bit.gz
 WORKDIR DataExtract-8300.15.0308.1149
 RUN python setup.py build
 RUN python setup.py install
+
+#prepare php stuff
+WORKDIR /home/php
+RUN composer install --no-interaction
+
 WORKDIR /home
 RUN PYTHONPATH=. py.test
 #remove the tests results
