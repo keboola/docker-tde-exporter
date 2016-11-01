@@ -14,8 +14,7 @@ RUN pip install httplib2
 # prepare the container
 
 WORKDIR /home
-RUN git clone https://github.com/keboola/tde-exporter.git ./
-RUN git checkout tags/3.1.2
+RUN git clone -b 3.1.2 --depth 1 https://github.com/keboola/tde-exporter.git ./
 WORKDIR libs
 RUN tar xvzf TDE-API-Python-Linux-64Bit.gz
 WORKDIR DataExtract-8300.15.0308.1149
