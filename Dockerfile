@@ -3,6 +3,7 @@ MAINTAINER Tomas Kacur <tomas.kacur@keboola.com>
 
 # setup the environment
 WORKDIR /tmp
+RUN yum install -y yum-plugin-ovl
 RUN yum -y install wget git tar
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
